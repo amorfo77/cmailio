@@ -45,10 +45,7 @@ if(NOT SHARE_INSTALL_DIR)
 endif(NOT SHARE_INSTALL_DIR)
 
 # options for cmailio to control how the project is built.
-option(CMAILIO_BUILD_DOCUMENTATION "Turn on to build doxygen based documentation." ON)
-option(CMAILIO_BUILD_EXAMPLES "Turn on to build examples." ON)
 option(CMAILIO_BUILD_SHARED_LIBRARY "Turn on to build the shared library." ON)
-option(CMAILIO_BUILD_TESTS "Turn on to build the tests." ON)
 
 # add a dependent option to build latex documentation or not.
 include(CMakeDependentOption)
@@ -58,7 +55,7 @@ if(WIN32)
     set(Boost_USE_STATIC_LIBS ON)
 endif(WIN32)
 
-find_package(Boost REQUIRED COMPONENTS system date_time regex unit_test_framework)
+find_package(Boost REQUIRED COMPONENTS system date_time regex)
 find_package(OpenSSL)
 set(CMAKE_THREAD_PREFER_PTHREAD)
 # "Use of both the imported target as well as this switch is highly recommended for new code."
@@ -98,23 +95,6 @@ set(project_headers
     ${PROJECT_SOURCE_DIR}/include/cmailio/q_codec.hpp
     ${PROJECT_SOURCE_DIR}/include/cmailio/smtp.hpp
 )
-
-# handle documentation
-if(${CMAILIO_BUILD_DOCUMENTATION})
-    find_package(Doxygen COMPONENTS doxygen OPTIONAL_COMPONENTS dot)
-    if(DOXYGEN_FOUND)
-        set(DOXYGEN_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/docs/cmailio)
-        set(DOXYGEN_GENERATE_LATEX ${CMAILIO_BUILD_LATEX_DOCUMENTATION})
-        set(DOXYGEN_OUTPUT_PATH ${DOCOUTDIR})
-
-        doxygen_add_docs(docs ${PROJECT_SOURCE_DIR}/include ALL WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
-
-        # install the documentation
-        install(DIRECTORY ${DOXYGEN_OUTPUT_DIRECTORY} DESTINATION docs)
-    else(DOXYGEN_FOUND)
-        message(STATUS "doxygen was not found, documentation will not be built")
-    endif(DOXYGEN_FOUND)
-endif(${CMAILIO_BUILD_DOCUMENTATION})
 
 set(LIBRARY_TYPE, "")
 if (CMAILIO_BUILD_SHARED_LIBRARY)
@@ -190,18 +170,3 @@ install(TARGETS ${PROJECT_NAME}
 export(TARGETS ${PROJECT_NAME} FILE ${PROJECT_NAME}Config.cmake)
 
 install(EXPORT ${PROJECT_NAME}Config DESTINATION share/${PROJECT_NAME}/cmake)
-
-# optionally build examples
-if(${CMAILIO_BUILD_EXAMPLES})
-    add_subdirectory(examples)
-    file(GLOB PNGS "${PROJECT_SOURCE_DIR}/examples/*.png")
-    install(FILES ${PNGS} DESTINATION "${SHARE_INSTALL_DIR}/${PROJECT_NAME}/examples/")
-endif(${CMAILIO_BUILD_EXAMPLES})
-
-if(${CMAILIO_BUILD_TESTS})
-    add_subdirectory(test)
-    file(GLOB PNGS "${PROJECT_SOURCE_DIR}/test/aleph0.png")
-    install(FILES ${PNGS} DESTINATION "${SHARE_INSTALL_DIR}/${PROJECT_NAME}/test/")
-    file(GLOB TXTS "${PROJECT_SOURCE_DIR}/test/cv.txt")
-    install(FILES ${TXTS} DESTINATION "${SHARE_INSTALL_DIR}/${PROJECT_NAME}/test/")
-endif(${CMAILIO_BUILD_TESTS})
