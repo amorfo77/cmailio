@@ -30,7 +30,7 @@ namespace cmailio
 /**
 Mail as name and address.
 **/
-struct MAILIO_EXPORT mail_address
+struct CMAILIO_EXPORT mail_address
 {
     /**
     Name part of the mail.
@@ -80,7 +80,7 @@ struct MAILIO_EXPORT mail_address
 /**
 Mail group with the name and members.
 **/
-struct MAILIO_EXPORT mail_group
+struct CMAILIO_EXPORT mail_group
 {
     /**
     Mail group name.
@@ -134,7 +134,7 @@ struct MAILIO_EXPORT mail_group
 /**
 List of mail addresses and groups.
 **/
-struct MAILIO_EXPORT mailboxes
+struct CMAILIO_EXPORT mailboxes
 {
     /**
     Mail addresses.

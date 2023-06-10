@@ -26,7 +26,7 @@ namespace cmailio
 /**
 Quoted Printable codec.
 **/
-class MAILIO_EXPORT quoted_printable : public codec
+class CMAILIO_EXPORT quoted_printable : public codec
 {
 public:
 

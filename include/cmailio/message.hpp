@@ -40,7 +40,7 @@ namespace cmailio
 /**
 Mail message and applied parsing/formatting algorithms.
 **/
-class MAILIO_EXPORT message : public mime
+class CMAILIO_EXPORT message : public mime
 {
 public:
 

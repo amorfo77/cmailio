@@ -43,7 +43,7 @@ namespace cmailio
 /**
 IMAP client implementation.
 **/
-class MAILIO_EXPORT imap
+class CMAILIO_EXPORT imap
 {
 public:
 
@@ -131,7 +131,7 @@ public:
 
     @todo Since both key and value types are known at compile time, perhaps they should be checked then instead at runtime.
     **/
-    struct MAILIO_EXPORT search_condition_t
+    struct CMAILIO_EXPORT search_condition_t
     {
         /**
         Condition key to be used as message search criteria.
@@ -869,7 +869,7 @@ protected:
 /**
 Secure version of `imap` class.
 **/
-class MAILIO_EXPORT imaps : public imap
+class CMAILIO_EXPORT imaps : public imap
 {
 public:
 

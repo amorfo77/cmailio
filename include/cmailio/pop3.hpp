@@ -39,7 +39,7 @@ namespace cmailio
 /**
 POP3 client implementation.
 **/
-class MAILIO_EXPORT pop3
+class CMAILIO_EXPORT pop3
 {
 public:
 
@@ -224,7 +224,7 @@ protected:
 /**
 Secure version of POP3 client.
 **/
-class MAILIO_EXPORT pop3s : public pop3
+class CMAILIO_EXPORT pop3s : public pop3
 {
 public:
 

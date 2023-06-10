@@ -190,7 +190,7 @@ Base class for codecs, contains various constants and miscellaneous functions fo
 
 @todo `encode()` and `decode()` as abstract methods?
 **/
-class MAILIO_EXPORT codec
+class CMAILIO_EXPORT codec
 {
 public:
 

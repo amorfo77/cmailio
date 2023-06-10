@@ -26,7 +26,7 @@ namespace cmailio
 /**
 Seven bit codec.
 **/
-class MAILIO_EXPORT bit7 : public codec
+class CMAILIO_EXPORT bit7 : public codec
 {
 public:
 

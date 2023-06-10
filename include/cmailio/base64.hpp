@@ -33,7 +33,7 @@ Base64 codec.
 
 @todo Add static method `string encode(string)` to be used by `smtp`?
 **/
-class MAILIO_EXPORT base64 : public codec
+class CMAILIO_EXPORT base64 : public codec
 {
 public:
 

@@ -38,7 +38,7 @@ namespace cmailio
 /**
 SMTP client implementation.
 **/
-class MAILIO_EXPORT smtp
+class CMAILIO_EXPORT smtp
 {
 public:
 
@@ -224,7 +224,7 @@ protected:
 /**
 Secure version of SMTP client.
 **/
-class MAILIO_EXPORT smtps : public smtp
+class CMAILIO_EXPORT smtps : public smtp
 {
 public:
 

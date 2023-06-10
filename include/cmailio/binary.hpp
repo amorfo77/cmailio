@@ -26,7 +26,7 @@ namespace cmailio
 /**
 Binary codec.
 **/
-class MAILIO_EXPORT binary : public codec
+class CMAILIO_EXPORT binary : public codec
 {
 public:
 
