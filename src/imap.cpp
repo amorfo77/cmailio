@@ -469,7 +469,7 @@ void imap::append(const string& folder_name, const message& msg)
     msg.format(msg_str, true);
 
     string cmd = "APPEND " + folder_name;
-    cmd.append(" {" + to_string(msg_str.size()) + "}");
+    cmd.append(" (\\Seen) {" + to_string(msg_str.size()) + "}");
     dlg_->send(format(cmd));
     string line = dlg_->receive();
     tag_result_response_t parsed_line = parse_tag_result(line);
