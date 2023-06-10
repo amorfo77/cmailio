@@ -4,7 +4,8 @@ libdir=@libdir@
 sharedlibdir=@libdir@
 includedir=@includedir@
 
-Name: mailio
+
+Name: cmailio
 Description: Cross-platform MIME library for SMTP, POP3, and IMAP protocols
 Version: @PROJECT_VERSION@
 Requires:
